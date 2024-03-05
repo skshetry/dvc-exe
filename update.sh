@@ -5,7 +5,7 @@ set -x
 
 LATEST=$1
 if [ ! $LATEST ]; then
-  LATEST=$(./latest.sh)
+  LATEST="3.48.3"
 fi
 
 PROJECT="iterative/dvc"
