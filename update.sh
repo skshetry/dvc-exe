@@ -10,6 +10,6 @@ fi
 
 PROJECT="iterative/dvc"
 GHAPI_URL="https://api.github.com/repos/$PROJECT/releases/latest"
-LATEST=$(curl --silent $GHAPI_URL | jq -r .tag_name)
+LATEST="3.48.3"
 
 sed -i 's/^VERSION = .*$/VERSION = '"\"$LATEST\""'/g' download.py
