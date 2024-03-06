@@ -18,7 +18,7 @@ jobs:
       id: latest
       shell: bash
       run: |
-        version="3.48.4"
+        version="3.48.5"
         echo "::set-output name=version::$version"
     - name: try update
       id: update
@@ -34,8 +34,3 @@ jobs:
       with:
         commit-message: dvc ${{ steps.latest.outputs.version }}
         title: dvc ${{ steps.latest.outputs.version }}
-    - name: Merge the PR
-      if: ${{ steps.update.outputs.changes != '' }}
-      run: gh pr merge --squash --delete-branch ${{ steps.create-pr.outputs.pull-request-url }}
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
